@@ -3,13 +3,16 @@ ul {
 
     li {
         display: inline;
-        padding-left: 20px;
+        // padding-left: 20px;
+        margin-left: 20px;
         color: hsl(219, 9%, 45%);
         font-weight: 400;
+        padding-bottom: 33px;
 
         &:hover {
             color: hsl(220, 13%, 13%);
             cursor: pointer;
+            border-bottom: 5px solid hsl(26, 100%, 55%);
         }
     }
 
@@ -29,5 +32,23 @@ nav {
 
     ul {
         display: none;
+    }
+}
+
+hr {
+    height: 1.9px;
+    width: 86%;
+    color: hsl(223, 64%, 98%);
+    background: hsl(223, 64%, 98%);
+    font-size: 0;
+    border: 0;
+}
+
+.avatar {
+    &:hover {
+        border: 3px solid hsl(26, 100%, 55%);
+        border-radius: 50%;
+        cursor: pointer;
+
     }
 }
