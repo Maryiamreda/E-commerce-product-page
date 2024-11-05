@@ -75,11 +75,7 @@ hr {
     box-shadow: 33px 0 305px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-
-    &.open {
-        transform: translateX(0);
-    }
+    transition: all .5s ease;
 
     ul {
         list-style: none;
