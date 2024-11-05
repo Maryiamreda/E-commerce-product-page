@@ -1,4 +1,4 @@
-ul {
+.desktopNav {
     list-style: none;
 
     li {
@@ -30,7 +30,7 @@ nav {
         padding: 10px;
     }
 
-    ul {
+    .desktopNav {
         display: none;
     }
 }
@@ -51,4 +51,56 @@ hr {
         cursor: pointer;
 
     }
+}
+
+
+.menuIcon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+
+    @media only screen and (max-width: 785px) {
+        display: block;
+    }
+}
+
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 58%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 33px 0 305px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 15px 0;
+            font-size: 18px;
+            color: hsl(220, 13%, 13%);
+            font-weight: 700;
+            cursor: pointer;
+
+            &:hover {
+                color: hsl(26, 100%, 55%);
+            }
+        }
+    }
+}
+
+.closeButton {
+    padding: 15px;
+    cursor: pointer;
 }
