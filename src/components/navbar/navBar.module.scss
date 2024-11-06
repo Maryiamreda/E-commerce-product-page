@@ -100,3 +100,44 @@ hr {
     padding: 15px;
     cursor: pointer;
 }
+
+// .cartIcon {
+//     filter: brightness(0) saturate(100%);
+
+// }
+
+// .count {
+//     background-color: hsl(26, 100%, 55%);
+//     color: white;
+//     font-size: 11px;
+//     width: 21px;
+//     text-align: center;
+//     border-radius: 8px;
+//     padding-bottom: 2px;
+//     position: relative;
+//     z-index: 1;
+//     left: 23px;
+//     top: 22px;
+// }
+.cartContainer {
+    position: relative;
+    display: inline-block;
+    padding: 13px;
+}
+
+.cartIcon {
+    filter: brightness(0) saturate(100%);
+}
+
+.count {
+    background-color: hsl(26, 100%, 55%);
+    color: white;
+    font-size: 11px;
+    width: 21px;
+    text-align: center;
+    border-radius: 8px;
+    padding-bottom: 2px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}

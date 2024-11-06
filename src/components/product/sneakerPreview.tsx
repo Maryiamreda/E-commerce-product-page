@@ -75,14 +75,15 @@ const SneakerPreview = () => {
                                     key={index}
                                     className={`${styles.thumbnailWrapper} ${`/images/image-product-${sliderIndex}.jpg` === thumb.fullSrc ? styles.active : ''}`}
                                 >
-                                    <img
+                                    <div style={{ backgroundColor: "white", borderRadius: "11px", height: "73px" }}> <img
                                         src={thumb.src}
                                         width={70}
                                         height={73}
                                         onClick={() => setSliderIndex(index + 1)}  // Only updates the slider index
                                         className={`${styles.thumbnailImage} ${`/images/image-product-${sliderIndex}.jpg` === thumb.fullSrc ? styles.active : ''}`}
                                         alt={thumb.alt}
-                                    />
+                                    /></div>
+
                                 </div>
                             ))}
                         </div>

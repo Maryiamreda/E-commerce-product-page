@@ -7,16 +7,22 @@ import Avatar from '../../../public/images/image-avatar.png';
 import Menu from '../../../public/images/icon-menu.svg';
 import CloseButton from '../../../public/images/icon-close.svg';
 import useCounterHook from '../product/sneakerCard'
-import { useState } from 'react';
-import { useCart } from '../../context/CartContext';
+import { useContext, useState } from 'react';
+import CartContext from '../../context/CartContext';
+// import { useCart } from '../../context/CartContext';
 
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const { count } = useCart();
-    console.log(count)
+
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
+
+    const cartContext = useContext(CartContext);
+    if (!cartContext) throw new Error("Navbar must be used within a CartProvider");
+
+    const { count } = cartContext;
+
     return (
         <>
             <nav>
@@ -35,7 +41,11 @@ const NavBar = () => {
 
                     </ul></div>
                 <div style={{ display: "flex", gap: "25px" }}>
-                    <img src={Cart} width={20} height={20} style={{ padding: "13px" }} />
+                    <div className={styles.cartContainer}>
+                        <img src={Cart} width={20} height={20} className={styles.cartIcon} />
+
+                        {count > 0 && <div className={styles.count}>{count}</div>}
+                    </div>
                     <img src={Avatar} width={50} height={50} className={styles.avatar} />
                 </div>
             </nav>
