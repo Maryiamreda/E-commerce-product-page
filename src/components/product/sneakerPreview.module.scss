@@ -2,17 +2,27 @@ img {
     border-radius: 11px;
 }
 
-@media only screen and (max-width: 785px) {
-    .desktop {
-        display: none;
+
+.previewSneaker {
+    @media only screen and (max-width: 785px) {
+        img {
+            width: 100%;
+            border-radius: 0;
+        }
     }
+
 }
+
 
 .thumbnailPics {
     width: 450px;
     display: flex;
     gap: 33px;
     padding-top: 20px;
+
+    @media only screen and (max-width: 785px) {
+        display: none;
+    }
 
     img {
         &:hover {
@@ -24,10 +34,10 @@ img {
 
 /* sneakerPreview.module.scss */
 
-.thumbnailPics {
-    display: flex;
-    gap: 29px;
-}
+// .thumbnailPics {
+//     display: flex;
+//     gap: 29px;
+// }
 
 .thumbnailWrapper {
     border: none;
@@ -63,6 +73,11 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (max-width: 785px) {
+        display: none;
+    }
+
 }
 
 .carouselButton {

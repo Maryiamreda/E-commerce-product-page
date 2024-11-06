@@ -25,7 +25,9 @@ const SneakerPreview = () => {
     return (
         <div>
             <div className={styles.desktop}>
-                <img src={sneaker} width={380} height={380} alt="Sneaker Preview" onClick={() => setModal(true)} />
+                <div className={styles.previewSneaker}>
+                    <img src={sneaker} width={380} height={380} alt="Sneaker Preview" onClick={() => setModal(true)} />
+                </div>
 
                 <div className={styles.thumbnailPics}>
                     {thumbnails.map((thumb, index) => (

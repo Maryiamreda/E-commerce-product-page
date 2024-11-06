@@ -6,12 +6,13 @@ import Cart from '../../../public/images/icon-cart.svg';
 import Avatar from '../../../public/images/image-avatar.png';
 import Menu from '../../../public/images/icon-menu.svg';
 import CloseButton from '../../../public/images/icon-close.svg';
-
+import useCounterHook from '../product/sneakerCard'
 import { useState } from 'react';
 
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+    const count = useCounterHook;
+    console.log(count)
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };

@@ -3,6 +3,7 @@ import { useState } from 'react'
 import './App.css'
 import NavBar from './components/navbar/navBar'
 import SneakerPreview from './components/product/sneakerPreview'
+import SneakerCard from './components/product/sneakerCard'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
       <NavBar />
       <div className="content">
         <SneakerPreview />
-
+        <SneakerCard />
       </div>
     </>
   )
