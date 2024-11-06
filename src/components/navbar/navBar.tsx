@@ -8,10 +8,11 @@ import Menu from '../../../public/images/icon-menu.svg';
 import CloseButton from '../../../public/images/icon-close.svg';
 import useCounterHook from '../product/sneakerCard'
 import { useState } from 'react';
+import { useCart } from '../../context/CartContext';
 
 const NavBar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const count = useCounterHook;
+    const { count } = useCart();
     console.log(count)
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);

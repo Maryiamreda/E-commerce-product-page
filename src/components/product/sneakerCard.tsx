@@ -3,13 +3,13 @@ import Plus from '../../../public/images/icon-plus.svg'
 import Minus from '../../../public/images/icon-minus.svg'
 import Cart from '../../../public/images/icon-cart.svg'
 import styles from './sneakerCard.module.scss'
+import { useCart } from "../../context/CartContext";
 const SneakerCard = () => {
-    const [count, setCount] = useState(0)
+    const { count, setCount } = useCart();
     const counter = (n: number) => {
         if (count + n < 0) return;
         setCount(count + n);
     }
-    const useCounterHook = () => { return count };
     return (
 
         <div className={styles.container}>
