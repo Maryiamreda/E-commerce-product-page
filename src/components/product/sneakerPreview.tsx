@@ -1,55 +1,84 @@
 import { useState } from "react";
 import styles from './sneakerPreview.module.scss';
+import Next from '../../../public/images/icon-next.svg';
+import Previous from '../../../public/images/icon-previous.svg';
+import Close from '../../../public/images/icon-close.svg';
 
 const SneakerPreview = () => {
-    const [sneaker, setSneaker] = useState('../../../public/images/image-product-1.jpg');
+    const [sneaker, setSneaker] = useState('/images/image-product-1.jpg');
     const [modal, setModal] = useState(false);
+    const [sliderIndex, setSliderIndex] = useState(1);
 
     const thumbnails = [
-        { src: '../../../public/images/image-product-1-thumbnail.jpg', fullSrc: '../../../public/images/image-product-1.jpg', alt: 'Thumbnail 1' },
-        { src: '../../../public/images/image-product-2-thumbnail.jpg', fullSrc: '../../../public/images/image-product-2.jpg', alt: 'Thumbnail 2' },
-        { src: '../../../public/images/image-product-3-thumbnail.jpg', fullSrc: '../../../public/images/image-product-3.jpg', alt: 'Thumbnail 3' },
-        { src: '../../../public/images/image-product-4-thumbnail.jpg', fullSrc: '../../../public/images/image-product-4.jpg', alt: 'Thumbnail 4' },
+        { src: '/images/image-product-1-thumbnail.jpg', fullSrc: '/images/image-product-1.jpg', alt: 'Thumbnail 1' },
+        { src: '/images/image-product-2-thumbnail.jpg', fullSrc: '/images/image-product-2.jpg', alt: 'Thumbnail 2' },
+        { src: '/images/image-product-3-thumbnail.jpg', fullSrc: '/images/image-product-3.jpg', alt: 'Thumbnail 3' },
+        { src: '/images/image-product-4-thumbnail.jpg', fullSrc: '/images/image-product-4.jpg', alt: 'Thumbnail 4' },
     ];
+    const maxIndex = thumbnails.length;
+
+    const plusDivs = (n: number) => {
+        const newIndex = sliderIndex + n;
+        setSliderIndex(newIndex > maxIndex ? 1 : newIndex < 1 ? maxIndex : newIndex);
+    };
 
     return (
         <div>
-            <img src={sneaker} width={380} height={380} alt="Sneaker Preview" onClick={() => { setModal(true) }} />
+            <div className={styles.desktop}>
+                <img src={sneaker} width={380} height={380} alt="Sneaker Preview" onClick={() => setModal(true)} />
 
-            <div className={styles.thumbnailPics}>
-                {thumbnails.map((thumb, index) => (
-                    <div
-                        key={index}
-                        className={`${styles.thumbnailWrapper} ${sneaker === thumb.fullSrc ? styles.active : ''}`}
-                    >
-                        <img
-                            src={thumb.src}
-                            width={70}
-                            height={73}
-                            onClick={() => setSneaker(thumb.fullSrc)}
-                            className={`${styles.thumbnailImage} ${sneaker === thumb.fullSrc ? styles.active : ''}`}
-                            alt={thumb.alt}
-                        />
-                    </div>
-                ))}
+                <div className={styles.thumbnailPics}>
+                    {thumbnails.map((thumb, index) => (
+                        <div
+                            key={index}
+                            className={`${styles.thumbnailWrapper} ${sneaker === thumb.fullSrc ? styles.active : ''}`}
+                        >
+                            <img
+                                src={thumb.src}
+                                width={70}
+                                height={73}
+                                onClick={() => setSneaker(thumb.fullSrc)}  // Only sets the main sneaker image
+                                className={`${styles.thumbnailImage} ${sneaker === thumb.fullSrc ? styles.active : ''}`}
+                                alt={thumb.alt}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
+
             {modal &&
                 <div className={styles.modal}>
                     <div className={styles.modalcontent}>
-                        <img src={sneaker} width={380} height={380} alt="Sneaker Preview" />
+                        <div className={styles.closeButton}>
+                            <img src={Close} onClick={() => setModal(false)} />
+
+                        </div>
+                        <div>
+                            <div className={styles.carouselButton}>
+                                <div onClick={() => plusDivs(-1)}>
+                                    <img src={Previous} alt="Previous" />
+                                </div>
+                                <div onClick={() => plusDivs(1)}>
+                                    <img src={Next} alt="Next" />
+                                </div>
+
+                            </div>
+
+                            <img src={`/images/image-product-${sliderIndex}.jpg`} width={380} height={380} alt="Sneaker Preview" />
+                        </div>
+
                         <div className={styles.thumbnailPics}>
                             {thumbnails.map((thumb, index) => (
                                 <div
                                     key={index}
-                                    className={`${styles.thumbnailWrapper} ${sneaker === thumb.fullSrc ? styles.active : ''}`}
+                                    className={`${styles.thumbnailWrapper} ${`/images/image-product-${sliderIndex}.jpg` === thumb.fullSrc ? styles.active : ''}`}
                                 >
                                     <img
                                         src={thumb.src}
                                         width={70}
                                         height={73}
-                                        onClick={() => setSneaker(thumb.fullSrc)}
-
-                                        className={`${styles.thumbnailImage} ${sneaker === thumb.fullSrc ? styles.active : ''}`}
+                                        onClick={() => setSliderIndex(index + 1)}  // Only updates the slider index
+                                        className={`${styles.thumbnailImage} ${`/images/image-product-${sliderIndex}.jpg` === thumb.fullSrc ? styles.active : ''}`}
                                         alt={thumb.alt}
                                     />
                                 </div>
@@ -58,8 +87,6 @@ const SneakerPreview = () => {
                     </div>
                 </div>
             }
-
-
         </div>
     );
 };

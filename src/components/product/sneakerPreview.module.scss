@@ -2,6 +2,12 @@ img {
     border-radius: 11px;
 }
 
+@media only screen and (max-width: 785px) {
+    .desktop {
+        display: none;
+    }
+}
+
 .thumbnailPics {
     width: 450px;
     display: flex;
@@ -20,7 +26,7 @@ img {
 
 .thumbnailPics {
     display: flex;
-    gap: 10px;
+    gap: 29px;
 }
 
 .thumbnailWrapper {
@@ -47,7 +53,7 @@ img {
 .modal {
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    // padding-top: 100px;
     left: 0;
     top: 0;
     width: 100%;
@@ -59,4 +65,56 @@ img {
     align-items: center;
 }
 
-.modalcontent {}
+.carouselButton {
+    right: 22px;
+    width: 424px;
+    top: 203px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        background-color: white;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            cursor: pointer;
+
+        }
+
+    }
+
+    img {
+        width: 12px;
+
+        &:hover {
+            cursor: pointer;
+            filter: brightness(0) saturate(100%) invert(58%) sepia(92%) saturate(1999%) hue-rotate(336deg) brightness(103%) contrast(102%);
+
+        }
+    }
+}
+
+.closeButton {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 380px;
+    position: absolute;
+
+    img {
+        width: 20px;
+
+    }
+
+    &:hover {
+        cursor: pointer;
+        filter: brightness(0) saturate(100%) invert(58%) sepia(92%) saturate(1999%) hue-rotate(336deg) brightness(103%) contrast(102%);
+
+    }
+
+}
