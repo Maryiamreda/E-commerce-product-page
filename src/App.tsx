@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './App.css';
 import NavBar from './components/navbar/navBar';
 import SneakerPreview from './components/product/sneakerPreview';

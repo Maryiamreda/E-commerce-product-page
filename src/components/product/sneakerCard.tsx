@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Plus from '../../../public/images/icon-plus.svg'
 import Minus from '../../../public/images/icon-minus.svg'
 import Cart from '../../../public/images/icon-cart.svg'

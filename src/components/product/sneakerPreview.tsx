@@ -7,7 +7,6 @@ import Close from '../../../public/images/icon-close.svg';
 const SneakerPreview = () => {
     const [sneaker, setSneaker] = useState('/images/image-product-1.jpg');
     const [modal, setModal] = useState(false);
-    const [mobile, setMobile] = useState(false);
 
     const [sliderIndex, setSliderIndex] = useState(1);
 
