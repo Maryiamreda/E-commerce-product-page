@@ -23,7 +23,7 @@ const SneakerPreview = () => {
     };
 
     return (
-        <div>
+        <div className={styles.sneakerPreview}>
             <div className={styles.desktop}>
                 <div className={styles.previewSneaker}>
                     <img src={sneaker} width={380} height={380} alt="Sneaker Preview" onClick={() => setModal(true)} />

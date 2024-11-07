@@ -13,11 +13,11 @@ const SneakerCard = () => {
     return (
 
         <div className={styles.container}>
-            <h5 >  Sneaker Company
+            <h5 >  SNEAKER COMPANY
             </h5>
             <h1>  Fall Limited Edition Sneakers
             </h1>
-            <p>
+            <p style={{ fontSize: "14PX", fontWeight: "500" }}>
                 These low-profile sneakers are your perfect casual wear companion. Featuring a
                 durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
             <div style={{ display: "flex", gap: "20px" }}>
@@ -28,7 +28,7 @@ const SneakerCard = () => {
             </del></p>
             <div className={styles.buyButtons}>
                 <div className={styles.quantitySelector}>
-                    <img src={Minus} width={13} height={4} style={{ paddingTop: "9px" }} onClick={() => decrement(-1)} />
+                    <img src={Minus} width={13} height={4} style={{ paddingTop: "9px" }} onClick={() => decrement(1)} />
                     <div>{count}</div>
                     <img src={Plus} width={11} height={10} onClick={() => increment(1)} />
                 </div>
