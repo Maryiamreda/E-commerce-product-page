@@ -7,8 +7,9 @@
 .previewSneaker {
     @media only screen and (max-width: 785px) {
         img {
-            width: 100%;
+            width: 100vw;
             border-radius: 0;
+            // margin-top: -2.78rem;
         }
     }
 
@@ -133,4 +134,48 @@
 
     }
 
+}
+
+.carouselButtonMobile {
+
+    // right: 22px;
+    // width: 424px;
+    top: 214px;
+    // position: relative;
+    position: absolute;
+    gap: 309px;
+    display: flex;
+    justify-content: space-between;
+
+    div {
+        background-color: white;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            cursor: pointer;
+
+        }
+
+    }
+
+    img {
+        width: 12px;
+
+        &:hover {
+            cursor: pointer;
+            filter: brightness(0) saturate(100%) invert(58%) sepia(92%) saturate(1999%) hue-rotate(336deg) brightness(103%) contrast(102%);
+
+        }
+    }
+
+
+
+    @media only screen and (min-width: 785px) {
+        display: none;
+    }
 }

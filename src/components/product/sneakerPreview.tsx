@@ -7,6 +7,8 @@ import Close from '../../../public/images/icon-close.svg';
 const SneakerPreview = () => {
     const [sneaker, setSneaker] = useState('/images/image-product-1.jpg');
     const [modal, setModal] = useState(false);
+    const [mobile, setMobile] = useState(false);
+
     const [sliderIndex, setSliderIndex] = useState(1);
 
     const thumbnails = [
@@ -19,13 +21,29 @@ const SneakerPreview = () => {
 
     const plusDivs = (n: number) => {
         const newIndex = sliderIndex + n;
-        setSliderIndex(newIndex > maxIndex ? 1 : newIndex < 1 ? maxIndex : newIndex);
+        const validIndex = newIndex > maxIndex ? 1 : newIndex < 1 ? maxIndex : newIndex;
+        setSliderIndex(validIndex);
+    };
+
+    const plusDivsForMobile = (n: number) => {
+        const newIndex = sliderIndex + n;
+        const validIndex = newIndex > maxIndex ? 1 : newIndex < 1 ? maxIndex : newIndex;
+        setSneaker(thumbnails[validIndex - 1].fullSrc);
+        setSliderIndex(validIndex);
     };
 
     return (
         <div className={styles.sneakerPreview}>
             <div className={styles.desktop}>
                 <div className={styles.previewSneaker}>
+                    <div className={styles.carouselButtonMobile}>
+                        <div onClick={() => plusDivsForMobile(-1)}>
+                            <img src={Previous} alt="Previous" />
+                        </div>
+                        <div onClick={() => plusDivsForMobile(1)}>
+                            <img src={Next} alt="Next" />
+                        </div>
+                    </div>
                     <img src={sneaker} width={380} height={380} alt="Sneaker Preview" onClick={() => setModal(true)} />
                 </div>
 
@@ -63,7 +81,6 @@ const SneakerPreview = () => {
                                 <div onClick={() => plusDivs(1)}>
                                     <img src={Next} alt="Next" />
                                 </div>
-
                             </div>
 
                             <img src={`/images/image-product-${sliderIndex}.jpg`} width={380} height={380} alt="Sneaker Preview" />

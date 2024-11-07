@@ -1,12 +1,23 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: 423px;
+
+    @media only screen and (min-width: 785px) {
+        width: 423px;
+    }
+
+    @media only screen and (max-width: 785px) {
+        padding: 20px;
+    }
 }
 
 .buyButtons {
     display: flex;
     gap: 20px;
+
+    @media only screen and (max-width: 785px) {
+        flex-direction: column;
+    }
 }
 
 h5 {
@@ -28,11 +39,8 @@ p {
 .quantitySelector {
     display: flex;
     gap: 39px;
-
-    width: 110px;
-
-
     align-items: center;
+    justify-content: space-between;
     background-color: hsl(223, 64%, 98%);
     padding: 13px 10px;
     border-radius: 8px;
@@ -40,6 +48,10 @@ p {
     font-size: 13px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+
+    @media only screen and (min-width: 785px) {
+        width: 110px;
+    }
 
     &:hover {
         background-color: hsl(25, 100%, 94%);
@@ -72,9 +84,14 @@ p {
     font-size: 13px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    justify-content: center;
 
     &:hover {
         background-color: hsl(25, 100%, 94%);
+    }
+
+    @media only screen and (max-width: 785px) {
+        padding: 20px;
     }
 }
 
